@@ -2,50 +2,50 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {uploadPhoto} from '../actions/upload-photo';
+import {deletePhoto} from '../actions/delete-photo';
 
 class FileUploader extends Component {
-
-     
-
     uploadPhoto(){
-        
-       
-        
-       return(
+         return(
             <div>
                 <input type="file" 
                        id="fileElem" 
-                       onChange={event => this.props.uploadPhoto(event)}/>
-                
-                             
+                       onChange={event => this.props.uploadPhoto(event)}/>           
             </div>
         );
+    }
+
+    deletePhoto(){
+        return(
+            <div>
+                <button>Delete</button>
+            </div>    
+        )
     }
 
    
   
     render(){
-        
-       return (
+    
+         return (
             <div>
-                {this.uploadPhoto()}
-               
+              {this.uploadPhoto()}
+              {this.deletePhoto()}
             </div>
-        )
-    }
-}
+            )
+        }
+}   
+
 
 function mapStateToProps(state){
     return {
         photos: state.photos,
-        uploadedPhoto: state.uploadedPhoto
-        
-    };
+     };
 }
 function matchDispatchToProps(dispatch){
     return bindActionCreators({ 
-        uploadPhoto: uploadPhoto,
-           
+        uploadPhoto: uploadPhoto, 
+        deletePhoto: deletePhoto    
     }, dispatch)
 }
 

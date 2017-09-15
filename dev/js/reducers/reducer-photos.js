@@ -1,5 +1,9 @@
-export default function() {
-   var photos = [
+import {  
+    UPLOAD_PHOTO,
+    DELETE_PHOTO
+} from '../constants/Photo'
+
+var initialState = [
     {
         id: 1,
         photo: 'https://www.yana.kiev.ua/img/countries/big/159/430744261.jpg'
@@ -14,7 +18,18 @@ export default function() {
     }
     
 ]
+export default function(state=initialState, action) {
+    var newId = state[state.length-1].id;
+    switch(action.type) {
+        case UPLOAD_PHOTO:
+            return  [ ...state,
+                 { id : ++newId,  photo : action.payload}
+            ]; 
+        break;
         
-  return photos;
-   
+        default: 
+            return state;
+    }  
+   return state;   
 }
+    

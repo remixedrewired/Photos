@@ -1,5 +1,6 @@
 import {  
-    PHOTO_SELECTED
+    PHOTO_SELECTED,
+    DELETE_PHOTO
 } from '../constants/Photo'
 
 
@@ -8,6 +9,7 @@ export default function(state=null, action) {
         case PHOTO_SELECTED:
             return action.payload;
         break;  
+        
     }    
     return state;
 }

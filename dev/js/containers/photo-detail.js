@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
 
 class PhotoDetail extends Component {
     render() {
@@ -12,8 +14,7 @@ class PhotoDetail extends Component {
         }
         return (
             <div>
-                <img src={this.props.active_photo.photo} width='250' height='250' />
-                        
+                <img src={this.props.active_photo.photo} width='250' height='250' />       
             </div>
 
         );

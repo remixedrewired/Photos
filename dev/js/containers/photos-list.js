@@ -8,14 +8,7 @@ class PhotosList extends Component {
 
 
     createListItems(){
-        
-        var uploadedPhoto = this.props.uploadedPhoto;
-        if(uploadedPhoto) {
-            this.props.photos.push(uploadedPhoto);
-        };
-           
-        
-               
+       
             return this.props.photos.map((photo) => {
                 
                 return (
@@ -25,12 +18,12 @@ class PhotosList extends Component {
                         onClick={()=> this.props.selectPhoto(photo)}
                         width = '100'
                         height = '100'
-                    >
-                        
+                    >  
                     </img>
                 );
             });
      }
+
     
 
     render() {     
@@ -50,9 +43,7 @@ function matchDispatchToProps(dispatch){
 }
 function mapStateToProps(state){
     return {
-        photos: state.photos,
-        uploadedPhoto: state.uploadedPhoto
-                
+        photos: state.photos,                
     };
 }
 
